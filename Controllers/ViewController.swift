@@ -1,17 +1,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-     var someNum: Int?
+     var someNum: Int = 0
     
     @IBOutlet weak var TextField: UITextField!
    
     @IBAction func seven(_ sender: Any) {
         btnpressed(someNum: 7)
     }
-    
     @IBAction func eight(_ sender: Any) {
         btnpressed(someNum: 8)
-    
     }
     @IBAction func nine(_ sender: Any) {
         btnpressed(someNum: 9)
@@ -51,13 +49,16 @@ class ViewController: UIViewController {
     }
   
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-      
     
     }
     func btnpressed(someNum: Int) {
-        TextField.text = String(someNum)
+       
+        if TextField.text!.count <= 4 {
+            TextField.text = TextField.text! + String(someNum)
+            }
+        
+        }
+        
     }
-   
-}
+
