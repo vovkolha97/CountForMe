@@ -3,6 +3,7 @@ import UIKit
 class ViewController: UIViewController {
      var argument1: Int = 0
      var argument2: Int = 0
+    var operatorBtn:Character?
     
     
     @IBOutlet weak var TextField: UITextField!
@@ -42,12 +43,19 @@ class ViewController: UIViewController {
     @IBAction func equal(_ sender: Any) {
     }
     @IBAction func plus(_ sender: Any) {
+        operatorChoosed(operatorBtn: "+")
     }
     @IBAction func minus(_ sender: Any) {
+        operatorChoosed(operatorBtn: "-")
+        
     }
     @IBAction func multiple(_ sender: Any) {
+        operatorChoosed(operatorBtn: "*")
+        
     }
     @IBAction func devide(_ sender: Any) {
+        operatorChoosed(operatorBtn: "/")
+        
     }
   
     override func viewDidLoad() {
@@ -58,10 +66,9 @@ class ViewController: UIViewController {
         if TextField.text!.count != 4 {
           self.argument1 = (self.argument1 * 10) + argument1
             TextField.text = String(self.argument1)
-    
-        }else {
-     }
-
+        }
   }
-   
+    func operatorChoosed( operatorBtn: Character) {
+        TextField.text! = TextField.text! + String(operatorBtn)
+    }
 }
