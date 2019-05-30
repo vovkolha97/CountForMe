@@ -58,7 +58,7 @@
                                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <state key="normal" title="/"/>
                                         <connections>
-                                            <action selector="devide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6ta-Ux-Bkz"/>
+                                            <action selector="divide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zxT-gH-1XZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
