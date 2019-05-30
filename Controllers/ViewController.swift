@@ -3,8 +3,7 @@ import UIKit
 class ViewController: UIViewController {
      var argument1: Int = 0
      var argument2: Int = 0
-    var operatorBtn:Character? = nil
-    
+     var operatorBtn:Character? = nil
     
     @IBOutlet weak var TextField: UITextField!
    
@@ -39,6 +38,7 @@ class ViewController: UIViewController {
         btnPressed(digit: 0)
     }
     @IBAction func cleanBtn(_ sender: Any) {
+       cleanTextField()
     }
     @IBAction func equal(_ sender: Any) {
     }
@@ -47,37 +47,36 @@ class ViewController: UIViewController {
     }
     @IBAction func minus(_ sender: Any) {
         operatorChosed(operatorBtn: "-")
-        
     }
     @IBAction func multiple(_ sender: Any) {
         operatorChosed(operatorBtn: "*")
-        
     }
     @IBAction func divide(_ sender: Any) {
         operatorChosed(operatorBtn: "/")
-        
     }
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
     
     func btnPressed( digit: Int) {
             if operatorBtn.self == nil {
                 self.argument1 = (self.argument1 * 10) + digit
                 TextField.text = String(self.argument1)
-                print("nil")
             } else {
                 self.argument2 = (self.argument2 * 10) + digit
                 TextField.text! = TextField.text! + String(self.argument2)
-                print("not nil")
             }
-  }
+    }
     func operatorChosed( operatorBtn: Character) {
         self.operatorBtn = operatorBtn
         TextField.text = TextField.text! + String(operatorBtn)
     }
-    
-  
+    func cleanTextField() {
+        argument1 = 0
+        argument2 = 0
+        operatorBtn = nil
+        TextField.text = String(0)
+    }
 }
