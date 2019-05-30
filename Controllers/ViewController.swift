@@ -1,39 +1,41 @@
 import UIKit
 
 class ViewController: UIViewController {
-     var someNum: Int = 0
+     var argument1: Int = 0
+     var argument2: Int = 0
+    
     
     @IBOutlet weak var TextField: UITextField!
    
     @IBAction func seven(_ sender: Any) {
-        btnpressed(someNum: 7)
+        btnPressed(argument1: 7)
     }
     @IBAction func eight(_ sender: Any) {
-        btnpressed(someNum: 8)
+        btnPressed(argument1: 8)
     }
     @IBAction func nine(_ sender: Any) {
-        btnpressed(someNum: 9)
+        btnPressed(argument1: 9)
     }
     @IBAction func five(_ sender: Any) {
-        btnpressed(someNum: 5)
+        btnPressed(argument1: 5)
     }
     @IBAction func four(_ sender: Any) {
-        btnpressed(someNum: 4)
+        btnPressed(argument1: 4)
     }
     @IBAction func six(_ sender: Any) {
-        btnpressed(someNum: 6)
+        btnPressed(argument1: 6)
     }
     @IBAction func one(_ sender: Any) {
-        btnpressed(someNum: 1)
+        btnPressed(argument1: 1)
     }
     @IBAction func two(_ sender: Any) {
-        btnpressed(someNum: 2)
+        btnPressed(argument1: 2)
     }
     @IBAction func three(_ sender: Any) {
-        btnpressed(someNum: 3)
+        btnPressed(argument1: 3)
     }
     @IBAction func zero(_ sender: Any) {
-        btnpressed(someNum: 0)
+        btnPressed(argument1: 0)
     }
     @IBAction func cleanBtn(_ sender: Any) {
     }
@@ -50,15 +52,16 @@ class ViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
     
-    }
-    func btnpressed(someNum: Int) {
-       
-        if TextField.text!.count <= 4 {
-            TextField.text = TextField.text! + String(someNum)
-            }
-        
-        }
-        
-    }
+    func btnPressed( argument1: Int) {
+        if TextField.text!.count != 4 {
+          self.argument1 = (self.argument1 * 10) + argument1
+            TextField.text = String(self.argument1)
+    
+        }else {
+     }
 
+  }
+   
+}
