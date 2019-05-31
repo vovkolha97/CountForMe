@@ -57,7 +57,7 @@ class ViewController: UIViewController {
     @IBAction func divide(_ sender: Any) {
         operatorSelected(operat: "/")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -84,21 +84,16 @@ class ViewController: UIViewController {
         switch operat {
         case "+" :
             self.argument1 = argument1 + argument2
-            print(argument1)
         case "-":
             self.argument1 = argument1 - argument2
-            print(self.argument1)
         case "/":
             self.argument1 = argument1 / argument2
-            print(self.argument1)
         case "*":
             self.argument1 = argument1 * argument2
-            print(self.argument1)
         default: display()
         }
         argument2 = 0
         operat = nil
-        
         display()
     }
     func reset() {
