@@ -59,45 +59,50 @@ class ViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
-    
     func btnPressed( digit: Int) {
-            if operatorBtn.self == nil {
+            if operatorBtn == nil {
                 self.argument1 = (self.argument1 * 10) + digit
-                TextField.text = String(self.argument1)
+                display()
+        
             } else {
                 self.argument2 = (self.argument2 * 10) + digit
-                TextField.text! = TextField.text! + String(self.argument2)
+                display()
             }
     }
     func operatorChosed( operatorBtn: Character) {
         self.operatorBtn = operatorBtn
-        TextField.text = TextField.text! + String(operatorBtn)
+        display()
     }
     func display() {
         if argument1 & argument2 == 0, operatorBtn == nil {
-            TextField.text = "0"
+            TextField.text = " "
         }
+        if operatorBtn == nil {
+            TextField.text = String(argument1)
+        } else{
+            TextField.text = String(argument2)
+        }
+    }
+    func resultBtn() {
+        switch operatorBtn {
+        case "+" :
+            self.argument1 = argument1 + argument2
+        case "-":
+            self.argument1 = argument1 - argument2
+        case "/":
+            self.argument1 = argument1 / argument2
+        case "*":
+            self.argument1 = argument1 * argument2
+        default:
+            TextField.text = TextField.text
+        }
+        TextField.text = String(self.argument1)
+            self.argument2 = 0
     }
     func reset() {
         argument1 = 0
         argument2 = 0
         operatorBtn = nil
-    }
-    
-    func resultBtn() {
-        switch operatorBtn {
-        case "+" :
-            TextField.text = String(argument1 + argument2)
-        case "-":
-            TextField.text = String(argument1 - argument2)
-        case "/":
-            TextField.text = String(argument1 / argument2)
-        case "*":
-            TextField.text = String(argument1 * argument2)
-        default:
-            TextField.text = TextField.text
-        }
     }
 }
