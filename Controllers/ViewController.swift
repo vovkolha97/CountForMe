@@ -1,12 +1,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-     var argument1: Int = 0
-     var argument2: Int = 0
-     var operatorBtn:Character? = nil
-        
+    var argument1: Int = 0
+    var argument2: Int = 0
+    var operat: Character? = nil
+    
     @IBOutlet weak var TextField: UITextField!
-   
+    
     @IBAction func seven(_ sender: Any) {
         btnPressed(digit: 7)
     }
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         btnPressed(digit: 0)
     }
     @IBAction func cleanBtn(_ sender: Any) {
-       reset()
+        reset()
         display()
     }
     @IBAction func equal(_ sender: Any) {
@@ -46,42 +46,42 @@ class ViewController: UIViewController {
         display()
     }
     @IBAction func plus(_ sender: Any) {
-        operatorSelected(operatorBtn: "+")
+        operatorSelected(operat: "+")
     }
     @IBAction func minus(_ sender: Any) {
-        operatorSelected(operatorBtn: "-")
+        operatorSelected(operat: "-")
     }
     @IBAction func multiple(_ sender: Any) {
-        operatorSelected(operatorBtn: "*")
+        operatorSelected(operat: "*")
     }
     @IBAction func divide(_ sender: Any) {
-        operatorSelected(operatorBtn: "/")
+        operatorSelected(operat: "/")
     }
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     func btnPressed( digit: Int) {
-            if operatorBtn == nil {
-                self.argument1 = (self.argument1 * 10) + digit
-            } else {
-                self.argument2 = (self.argument2 * 10) + digit
-            }
+        if operat == nil {
+            self.argument1 = (self.argument1 * 10) + digit
+        } else {
+            self.argument2 = (self.argument2 * 10) + digit
+        }
         display()
     }
-    func operatorSelected( operatorBtn: Character) {
-        self.operatorBtn = operatorBtn
+    func operatorSelected( operat: Character) {
+        self.operat = operat
         display()
     }
     func display() {
-        if operatorBtn == nil {
+        if operat == nil {
             TextField.text = String(argument1)
-        } else{
+        } else {
             TextField.text = String(argument2)
         }
     }
     func resultBtn() {
-        switch operatorBtn {
+        switch operat {
         case "+" :
             self.argument1 = argument1 + argument2
             print(argument1)
@@ -95,14 +95,16 @@ class ViewController: UIViewController {
             self.argument1 = argument1 * argument2
             print(self.argument1)
         default: display()
-       }
+        }
         argument2 = 0
-        operatorBtn = nil
-      display()
+        operat = nil
+        
+        display()
     }
     func reset() {
         argument1 = 0
         argument2 = 0
-        operatorBtn = nil
+        operat = nil
     }
+    
 }
