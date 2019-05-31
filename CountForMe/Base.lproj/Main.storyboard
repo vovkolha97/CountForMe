@@ -53,7 +53,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POT-av-iCc">
                                         <rect key="frame" x="271.5" y="0.0" width="83.5" height="70"/>
-                                        <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.025579353917597174" green="0.45288707348606316" blue="0.73629838197969544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <state key="normal" title="/"/>
@@ -101,7 +101,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hi-Nf-OpB">
                                         <rect key="frame" x="271.5" y="0.0" width="83.5" height="70"/>
-                                        <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.025579353919999999" green="0.45288707350000001" blue="0.73629838199999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <state key="normal" title="*"/>
@@ -149,7 +149,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mee-vR-zvq">
                                         <rect key="frame" x="271.5" y="0.0" width="83.5" height="70"/>
-                                        <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.025579353919999999" green="0.45288707350000001" blue="0.73629838199999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <state key="normal" title="-"/>
@@ -197,7 +197,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F31-G2-dCJ">
                                         <rect key="frame" x="271.5" y="0.0" width="83.5" height="70"/>
-                                        <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.025579353919999999" green="0.45288707350000001" blue="0.73629838199999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <state key="normal" title="+"/>
@@ -211,11 +211,14 @@
                                     <constraint firstAttribute="height" constant="70" id="ZLG-nI-8WQ"/>
                                 </constraints>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1mM-uN-43S">
-                                <rect key="frame" x="127" y="169" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="1mM-uN-43S">
+                                <rect key="frame" x="10" y="40" width="355" height="270"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="mOT-Ff-Xqs"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="35"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -224,6 +227,7 @@
                             <constraint firstItem="Pye-cg-D5J" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="14K-Fu-Znm"/>
                             <constraint firstItem="5Us-2k-0ID" firstAttribute="top" secondItem="Pye-cg-D5J" secondAttribute="bottom" constant="10" id="6HE-bt-juZ"/>
                             <constraint firstItem="dii-mT-DEC" firstAttribute="top" secondItem="ZY3-wi-B56" secondAttribute="bottom" constant="10" id="ITZ-DK-NdM"/>
+                            <constraint firstItem="1mM-uN-43S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="JLP-VW-7Ze"/>
                             <constraint firstItem="5Us-2k-0ID" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JWu-oN-4T0"/>
                             <constraint firstItem="5Us-2k-0ID" firstAttribute="top" secondItem="Pye-cg-D5J" secondAttribute="bottom" constant="10" id="O5J-Ch-Lqu"/>
                             <constraint firstItem="Pye-cg-D5J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ORy-eN-hWF"/>
@@ -231,6 +235,8 @@
                             <constraint firstItem="dii-mT-DEC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Vvl-Zx-KwG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pye-cg-D5J" secondAttribute="trailing" constant="10" id="XZA-lz-9Bk"/>
                             <constraint firstItem="iSA-Mb-Eoo" firstAttribute="top" secondItem="dii-mT-DEC" secondAttribute="bottom" constant="10" id="XeR-Tg-LXJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1mM-uN-43S" secondAttribute="trailing" constant="10" id="YfG-10-ggk"/>
+                            <constraint firstItem="1mM-uN-43S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="YjY-Li-neg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iSA-Mb-Eoo" secondAttribute="trailing" constant="10" id="cxH-oJ-XN7"/>
                             <constraint firstItem="5Us-2k-0ID" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="db7-yE-ZkX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iSA-Mb-Eoo" secondAttribute="trailing" constant="10" id="hye-Zs-uDz"/>

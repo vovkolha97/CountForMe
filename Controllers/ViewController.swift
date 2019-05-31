@@ -38,9 +38,11 @@ class ViewController: UIViewController {
         btnPressed(digit: 0)
     }
     @IBAction func cleanBtn(_ sender: Any) {
-       cleanTextField()
+       reset()
+        display()
     }
     @IBAction func equal(_ sender: Any) {
+        resultBtn()
     }
     @IBAction func plus(_ sender: Any) {
         operatorChosed(operatorBtn: "+")
@@ -73,10 +75,29 @@ class ViewController: UIViewController {
         self.operatorBtn = operatorBtn
         TextField.text = TextField.text! + String(operatorBtn)
     }
-    func cleanTextField() {
+    func display() {
+        if argument1 & argument2 == 0, operatorBtn == nil {
+            TextField.text = "0"
+        }
+    }
+    func reset() {
         argument1 = 0
         argument2 = 0
         operatorBtn = nil
-        TextField.text = String(0)
+    }
+    
+    func resultBtn() {
+        switch operatorBtn {
+        case "+" :
+            TextField.text = String(argument1 + argument2)
+        case "-":
+            TextField.text = String(argument1 - argument2)
+        case "/":
+            TextField.text = String(argument1 / argument2)
+        case "*":
+            TextField.text = String(argument1 * argument2)
+        default:
+            TextField.text = TextField.text
+        }
     }
 }
