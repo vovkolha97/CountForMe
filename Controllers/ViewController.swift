@@ -43,6 +43,7 @@ class ViewController: UIViewController {
     }
     @IBAction func equal(_ sender: Any) {
         resultBtn()
+        display()
     }
     @IBAction func plus(_ sender: Any) {
         operatorChosed(operatorBtn: "+")
@@ -83,22 +84,31 @@ class ViewController: UIViewController {
         } else{
             TextField.text = String(argument2)
         }
+       
+      
     }
     func resultBtn() {
         switch operatorBtn {
         case "+" :
             self.argument1 = argument1 + argument2
+            display()
+            print(self.argument1)
         case "-":
             self.argument1 = argument1 - argument2
+            display()
+            print(self.argument1)
         case "/":
             self.argument1 = argument1 / argument2
+            display()
+            print(self.argument1)
         case "*":
             self.argument1 = argument1 * argument2
+            display()
+            print(self.argument1)
         default:
-            TextField.text = TextField.text
+                display()
         }
-        TextField.text = String(self.argument1)
-            self.argument2 = 0
+      
     }
     func reset() {
         argument1 = 0
