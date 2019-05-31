@@ -4,7 +4,7 @@ class ViewController: UIViewController {
      var argument1: Int = 0
      var argument2: Int = 0
      var operatorBtn:Character? = nil
-    
+        
     @IBOutlet weak var TextField: UITextField!
    
     @IBAction func seven(_ sender: Any) {
@@ -46,16 +46,16 @@ class ViewController: UIViewController {
         display()
     }
     @IBAction func plus(_ sender: Any) {
-        operatorChosed(operatorBtn: "+")
+        operatorSelected(operatorBtn: "+")
     }
     @IBAction func minus(_ sender: Any) {
-        operatorChosed(operatorBtn: "-")
+        operatorSelected(operatorBtn: "-")
     }
     @IBAction func multiple(_ sender: Any) {
-        operatorChosed(operatorBtn: "*")
+        operatorSelected(operatorBtn: "*")
     }
     @IBAction func divide(_ sender: Any) {
-        operatorChosed(operatorBtn: "/")
+        operatorSelected(operatorBtn: "/")
     }
   
     override func viewDidLoad() {
@@ -64,51 +64,41 @@ class ViewController: UIViewController {
     func btnPressed( digit: Int) {
             if operatorBtn == nil {
                 self.argument1 = (self.argument1 * 10) + digit
-                display()
-        
             } else {
                 self.argument2 = (self.argument2 * 10) + digit
-                display()
             }
+        display()
     }
-    func operatorChosed( operatorBtn: Character) {
+    func operatorSelected( operatorBtn: Character) {
         self.operatorBtn = operatorBtn
         display()
     }
     func display() {
-        if argument1 & argument2 == 0, operatorBtn == nil {
-            TextField.text = " "
-        }
         if operatorBtn == nil {
             TextField.text = String(argument1)
         } else{
             TextField.text = String(argument2)
         }
-       
-      
     }
     func resultBtn() {
         switch operatorBtn {
         case "+" :
             self.argument1 = argument1 + argument2
-            display()
-            print(self.argument1)
+            print(argument1)
         case "-":
             self.argument1 = argument1 - argument2
-            display()
             print(self.argument1)
         case "/":
             self.argument1 = argument1 / argument2
-            display()
             print(self.argument1)
         case "*":
             self.argument1 = argument1 * argument2
-            display()
             print(self.argument1)
-        default:
-                display()
-        }
-      
+        default: display()
+       }
+        argument2 = 0
+        operatorBtn = nil
+      display()
     }
     func reset() {
         argument1 = 0
