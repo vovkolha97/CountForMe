@@ -1,105 +1,90 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var argument1: Int = 0
-    var argument2: Int = 0
-    var operat: Character? = nil
+    
+    var model: CalculatorModel!
     
     @IBOutlet weak var TextField: UITextField!
     
     @IBAction func seven(_ sender: Any) {
-        btnPressed(digit: 7)
+        model.btnPressed(digit: 7)
+        display()
     }
     @IBAction func eight(_ sender: Any) {
-        btnPressed(digit: 8)
+        model.btnPressed(digit: 8)
+        display()
     }
     @IBAction func nine(_ sender: Any) {
-        btnPressed(digit: 9)
+        model.btnPressed(digit: 9)
+        display()
     }
     @IBAction func five(_ sender: Any) {
-        btnPressed(digit: 5)
+        model.btnPressed(digit: 5)
+        display()
     }
     @IBAction func four(_ sender: Any) {
-        btnPressed(digit: 4)
+        model.btnPressed(digit: 4)
+        display()
     }
     @IBAction func six(_ sender: Any) {
-        btnPressed(digit: 6)
+        model.btnPressed(digit: 6)
+        display()
     }
     @IBAction func one(_ sender: Any) {
-        btnPressed(digit: 1)
+        model.btnPressed(digit: 1)
+        display()
     }
     @IBAction func two(_ sender: Any) {
-        btnPressed(digit: 2)
+        model.btnPressed(digit: 2)
+        display()
     }
     @IBAction func three(_ sender: Any) {
-        btnPressed(digit: 3)
+        model.btnPressed(digit: 3)
+        display()
     }
     @IBAction func zero(_ sender: Any) {
-        btnPressed(digit: 0)
+        model.btnPressed(digit: 0)
+        display()
     }
     @IBAction func cleanBtn(_ sender: Any) {
-        reset()
+        model.reset()
         display()
     }
     @IBAction func equal(_ sender: Any) {
-        resultBtn()
+        if model.operat == nil {
+            return
+        }
+        model.calculate()
         display()
     }
     @IBAction func plus(_ sender: Any) {
-        operatorSelected(operat: "+")
+        model.doOperate(op: "+")
+        display()
     }
     @IBAction func minus(_ sender: Any) {
-        operatorSelected(operat: "-")
+        model.doOperate(op: "-")
+        display()
     }
     @IBAction func multiple(_ sender: Any) {
-        operatorSelected(operat: "*")
+        model.doOperate(op: "*")
+        display()
     }
     @IBAction func divide(_ sender: Any) {
-        operatorSelected(operat: "/")
+        model.doOperate(op: "/")
+        display()
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    func btnPressed( digit: Int) {
-        if operat == nil {
-            self.argument1 = (self.argument1 * 10) + digit
-        } else {
-            self.argument2 = (self.argument2 * 10) + digit
-        }
+        model = CalculatorModel()
         display()
     }
-    func operatorSelected( operat: Character) {
-        self.operat = operat
-        display()
-    }
+    
     func display() {
-        if operat == nil {
-            TextField.text = String(argument1)
+        if model.operat == nil || model.argument2 == 0 {
+            TextField.text = String(model.argument1)
         } else {
-            TextField.text = String(argument2)
+            TextField.text = String(model.argument2)
         }
-    }
-    func resultBtn() {
-        switch operat {
-        case "+" :
-            self.argument1 = argument1 + argument2
-        case "-":
-            self.argument1 = argument1 - argument2
-        case "/":
-            self.argument1 = argument1 / argument2
-        case "*":
-            self.argument1 = argument1 * argument2
-        default: display()
-        }
-        argument2 = 0
-        operat = nil
-        display()
-    }
-    func reset() {
-        argument1 = 0
-        argument2 = 0
-        operat = nil
     }
     
 }
