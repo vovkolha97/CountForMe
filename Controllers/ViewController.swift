@@ -6,44 +6,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var TextField: UITextField!
     
-    @IBAction func seven(_ sender: Any) {
-        model.btnPressed(digit: 7)
-        display()
-    }
-    @IBAction func eight(_ sender: Any) {
-        model.btnPressed(digit: 8)
-        display()
-    }
-    @IBAction func nine(_ sender: Any) {
-        model.btnPressed(digit: 9)
-        display()
-    }
-    @IBAction func five(_ sender: Any) {
-        model.btnPressed(digit: 5)
-        display()
-    }
-    @IBAction func four(_ sender: Any) {
-        model.btnPressed(digit: 4)
-        display()
-    }
-    @IBAction func six(_ sender: Any) {
-        model.btnPressed(digit: 6)
-        display()
-    }
-    @IBAction func one(_ sender: Any) {
-        model.btnPressed(digit: 1)
-        display()
-    }
-    @IBAction func two(_ sender: Any) {
-        model.btnPressed(digit: 2)
-        display()
-    }
-    @IBAction func three(_ sender: Any) {
-        model.btnPressed(digit: 3)
-        display()
-    }
-    @IBAction func zero(_ sender: Any) {
-        model.btnPressed(digit: 0)
+    @IBAction func digitBtn(_ sender: UIButton) {
+        model.btnPressed(digit: sender.tag)
         display()
     }
     @IBAction func cleanBtn(_ sender: Any) {
