@@ -37,6 +37,14 @@ class ViewController: UIViewController {
         model.doOperate(op: "/")
         display()
     }
+    @IBAction func plusMinusBtn(_ sender: Any) {
+    }
+    
+    @IBAction func percentBtn(_ sender: Any) {
+    }
+    @IBAction func dotBtn(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         model = CalculatorModel()
