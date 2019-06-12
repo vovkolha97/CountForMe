@@ -38,11 +38,13 @@ class ViewController: UIViewController {
         display()
     }
     @IBAction func plusMinusBtn(_ sender: Any) {
+        model.plusMinusBtnPressed(plusMinusBtn: "-")
+        display()
     }
-    
     @IBAction func percentBtn(_ sender: Any) {
     }
     @IBAction func dotBtn(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {

@@ -54,5 +54,13 @@ class CalculatorModel {
         argument2 = 0
         operat = nil
     }
-    
+    func plusMinusBtnPressed(plusMinusBtn: Character) {
+        if operat == nil {
+            argument1 = argument1 * -1
+            print(argument1)
+        } else {
+            argument2 = argument2 * -1
+            print(argument2)
+        }
+    }
 }
