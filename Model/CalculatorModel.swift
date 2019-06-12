@@ -2,20 +2,20 @@ import UIKit
 
 class CalculatorModel {
     
-    let maxValue: Int  = 99999
-    var argument1: Int = 0
-    var argument2: Int = 0
+    let maxValue: Double  = 999999
+    var argument1: Double = 0
+    var argument2: Double = 0
     var operat: Character? = nil
     
-    func btnPressed( digit: Int) {
+    func btnPressed( digit: Double) {
         if operat == nil {
-            let newValue: Int = self.argument1 * 10 + digit
+            let newValue: Double = self.argument1 * 10 + digit
             if newValue > self.maxValue {
                 return
             }
             self.argument1 = newValue
         } else {
-            let newValue: Int = self.argument2 * 10 + digit
+            let newValue: Double = self.argument2 * 10 + digit
             if newValue > self.maxValue {
                 return
             }
@@ -39,6 +39,8 @@ class CalculatorModel {
             self.argument1 = argument1 / argument2
         case "*":
             self.argument1 = argument1 * argument2
+        case "%":
+            print("")
         default:
             print("Unknown operator %s", operat as Any)
             return
@@ -57,10 +59,31 @@ class CalculatorModel {
     func plusMinusBtnPressed(plusMinusBtn: Character) {
         if operat == nil {
             argument1 = argument1 * -1
-            print(argument1)
         } else {
             argument2 = argument2 * -1
-            print(argument2)
         }
+    }
+    func percentBtnPressed() {
+        if argument2 != 0{
+            let percentValue = argument2 / 100
+            let percentDisplayed = percentValue * argument1
+            switch operat {
+            case "*" :
+                self.argument1 = argument1 * percentValue
+            case "-":
+                self.argument1 = argument1 - percentDisplayed
+            case "/":
+                self.argument1 = argument1 / percentValue
+            case "+":
+                self.argument1 = argument1 + percentDisplayed
+            default:
+                print("Unknown operator %s", operat as Any)
+                return
+            }
+            self.argument2 = percentDisplayed
+        } else if argument1 != 0{
+            argument1 /= 100
+        }
+        operat = "%"
     }
 }

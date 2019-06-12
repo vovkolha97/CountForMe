@@ -7,7 +7,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var TextField: UITextField!
     
     @IBAction func digitBtn(_ sender: UIButton) {
-        model.btnPressed(digit: sender.tag)
+        model.btnPressed(digit: Double(sender.tag))
         display()
     }
     @IBAction func cleanBtn(_ sender: Any) {
@@ -42,9 +42,11 @@ class ViewController: UIViewController {
         display()
     }
     @IBAction func percentBtn(_ sender: Any) {
+        model.percentBtnPressed()
+        display()
     }
     @IBAction func dotBtn(_ sender: Any) {
-        
+        display()
     }
     
     override func viewDidLoad() {
@@ -55,9 +57,9 @@ class ViewController: UIViewController {
     
     func display() {
         if model.operat == nil || model.argument2 == 0 {
-            TextField.text = String(model.argument1)
+            TextField.text = String(Int(model.argument1))
         } else {
-            TextField.text = String(model.argument2)
+            TextField.text = String(Int(model.argument2))
         }
     }
     
