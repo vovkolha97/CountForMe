@@ -57,10 +57,20 @@ class ViewController: UIViewController {
     
     func display() {
         if model.operat == nil || model.argument2 == 0 {
-            TextField.text = String(Int(model.argument1))
+            TextField.text = formatter(argument: model.argument1)
         } else {
-            TextField.text = String(Int(model.argument2))
+            TextField.text = formatter(argument: model.argument2)
         }
+    }
+    
+    func formatter(argument: Double) -> String {
+        let hasFloatPart = argument.truncatingRemainder(dividingBy: 1) > 0
+        
+        if (hasFloatPart) {
+            return String(argument)
+        }
+        
+        return String(Int(argument))
     }
     
 }
