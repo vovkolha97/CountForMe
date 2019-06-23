@@ -7,8 +7,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var TextField: UITextField!
     
     @IBAction func digitBtn(_ sender: UIButton) {
-        model.btnPressed(digit: Double(sender.tag))
-        display()
+        addNumber(number: String(sender.tag))
     }
     @IBAction func cleanBtn(_ sender: Any) {
         model.reset()
@@ -18,23 +17,23 @@ class ViewController: UIViewController {
         if model.operat == nil {
             return
         }
-        model.calculate()
+        model.operatorSelected(operat: "=", text: TextField.text!)
         display()
     }
     @IBAction func plus(_ sender: Any) {
-        model.doOperate(op: "+")
+        model.operatorSelected(operat: "+", text: TextField.text!)
         display()
     }
     @IBAction func minus(_ sender: Any) {
-        model.doOperate(op: "-")
+        model.operatorSelected(operat: "-", text: TextField.text!)
         display()
     }
     @IBAction func multiple(_ sender: Any) {
-        model.doOperate(op: "*")
+        model.operatorSelected(operat: "*", text: TextField.text!)
         display()
     }
     @IBAction func divide(_ sender: Any) {
-        model.doOperate(op: "/")
+        model.operatorSelected(operat: "/", text: TextField.text!)
         display()
     }
     @IBAction func plusMinusBtn(_ sender: Any) {
@@ -46,7 +45,8 @@ class ViewController: UIViewController {
         display()
     }
     @IBAction func dotBtn(_ sender: Any) {
-        display()
+        addDot()
+        model.dotBtnPressed()
     }
     
     override func viewDidLoad() {
@@ -55,22 +55,44 @@ class ViewController: UIViewController {
         display()
     }
     
+    func addNumber (number: String) {
+        if model.isNewValue {
+            TextField.text = number
+        } else  {
+            TextField.text?.append(contentsOf: number)
+        }
+        model.isNewValue = false
+    }
+    
+    func addDot() {
+        
+        if (!model.isDotPressed)  {
+            TextField.text?.append(contentsOf: ".")
+        }
+    }
+    
     func display() {
-        if model.operat == nil || model.argument2 == 0 {
-            TextField.text = formatter(argument: model.argument1)
+        if model.isNewValue {
+            TextField.text = "0"
+            return
+        }
+        if model.operat == nil {
+            TextField.text = formatter(argument: String(model.argument1))
         } else {
-            TextField.text = formatter(argument: model.argument2)
+            TextField.text = formatter(argument: String(model.argument2))
+            
         }
     }
     
-    func formatter(argument: Double) -> String {
-        let hasFloatPart = argument.truncatingRemainder(dividingBy: 1) > 0
-        
-        if (hasFloatPart) {
-            return String(argument)
+    func formatter(argument: String) -> String{
+        let delimiter = "."
+        if argument.contains(delimiter) {
+            let tokens = argument.components(separatedBy: delimiter)
+            if tokens.last == "0" {
+                return tokens.first!
+            }
         }
         
-        return String(Int(argument))
+        return argument
     }
-    
 }

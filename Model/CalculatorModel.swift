@@ -6,28 +6,20 @@ class CalculatorModel {
     var argument1: Double = 0
     var argument2: Double = 0
     var operat: Character? = nil
+    var isDotPressed: Bool = false
+    var isNewValue: Bool = true
     
-    func btnPressed( digit: Double) {
-        if operat == nil {
-            let newValue: Double = self.argument1 * 10 + digit
-            if newValue > self.maxValue {
-                return
-            }
-            self.argument1 = newValue
-        } else {
-            let newValue: Double = self.argument2 * 10 + digit
-            if newValue > self.maxValue {
-                return
-            }
-            self.argument2 = newValue
-        }
-    }
     
-    func operatorSelected( operat: Character) {
+    func operatorSelected( operat: Character, text: String) {
         if self.operat != nil {
+            argument2 = Double(text)!
             calculate()
+        } else {
+            argument1 = Double(text)!
+            self.operat = operat
+            isNewValue = true
         }
-        self.operat = operat
+        
     }
     func calculate() {
         switch operat {
@@ -47,22 +39,25 @@ class CalculatorModel {
         }
         argument2 = 0
         operat = nil
+        
     }
-    func doOperate(op: Character) {
-        operatorSelected(operat: op)
-    }
+    
     func reset() {
         argument1 = 0
         argument2 = 0
         operat = nil
+        isDotPressed = false
+        isNewValue = true
     }
     func plusMinusBtnPressed(plusMinusBtn: Character) {
         if operat == nil {
             argument1 = argument1 * -1
         } else {
             argument2 = argument2 * -1
+            
         }
     }
+    
     func percentBtnPressed() {
         if argument2 != 0{
             let percentValue = argument2 / 100
@@ -81,9 +76,16 @@ class CalculatorModel {
                 return
             }
             self.argument2 = percentDisplayed
-        } else if argument1 != 0{
+            
+        } else if argument1 != 0 {
             argument1 /= 100
+            
         }
         operat = "%"
+    }
+    
+    func dotBtnPressed() {
+        isDotPressed = true
+        
     }
 }
