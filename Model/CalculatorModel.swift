@@ -49,12 +49,14 @@ class CalculatorModel {
         isDotPressed = false
         isNewValue = true
     }
-    func plusMinusBtnPressed(plusMinusBtn: Character) {
+    
+    func plusMinusBtnPressed(text: String)  {
         if operat == nil {
+            argument1 = Double(text)!
             argument1 = argument1 * -1
         } else {
+            argument2 = Double(text)!
             argument2 = argument2 * -1
-            
         }
     }
     

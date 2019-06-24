@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         display()
     }
     @IBAction func plusMinusBtn(_ sender: Any) {
-        model.plusMinusBtnPressed(plusMinusBtn: "-")
+        model.plusMinusBtnPressed(text: TextField.text!)
         display()
     }
     @IBAction func percentBtn(_ sender: Any) {
@@ -71,6 +71,8 @@ class ViewController: UIViewController {
         }
     }
     
+ 
+    
     func display() {
         if model.isNewValue {
             TextField.text = "0"
@@ -83,7 +85,7 @@ class ViewController: UIViewController {
             
         }
     }
-    
+  
     func formatter(argument: String) -> String{
         let delimiter = "."
         if argument.contains(delimiter) {
