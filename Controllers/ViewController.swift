@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         display()
     }
     @IBAction func percentBtn(_ sender: Any) {
-        model.percentBtnPressed()
+        model.percentBtnPressed(text: TextField.text!)
         display()
     }
     @IBAction func dotBtn(_ sender: Any) {
@@ -71,7 +71,6 @@ class ViewController: UIViewController {
         }
     }
     
- 
     
     func display() {
         if model.isNewValue {
@@ -85,7 +84,7 @@ class ViewController: UIViewController {
             
         }
     }
-  
+    
     func formatter(argument: String) -> String{
         let delimiter = "."
         if argument.contains(delimiter) {

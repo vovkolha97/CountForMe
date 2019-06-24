@@ -60,7 +60,12 @@ class CalculatorModel {
         }
     }
     
-    func percentBtnPressed() {
+    func percentBtnPressed(text: String) {
+        if operat == nil {
+            argument1 = Double(text)!
+        } else {
+            argument2 = Double(text)!
+        }
         if argument2 != 0{
             let percentValue = argument2 / 100
             let percentDisplayed = percentValue * argument1
@@ -81,7 +86,6 @@ class CalculatorModel {
             
         } else if argument1 != 0 {
             argument1 /= 100
-            
         }
         operat = "%"
     }
