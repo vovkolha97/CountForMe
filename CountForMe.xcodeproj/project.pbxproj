@@ -13,7 +13,20 @@
 		F2825D61229F07C200BDF7A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2825D60229F07C200BDF7A8 /* Assets.xcassets */; };
 		F2825D64229F07C200BDF7A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2825D62229F07C200BDF7A8 /* LaunchScreen.storyboard */; };
 		F2AE6FE322A2A1BB00F82B27 /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AE6FE222A2A1BB00F82B27 /* CalculatorModel.swift */; };
+		F2F22E5022C3AC39003DF60F /* CountForMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F22E4F22C3AC39003DF60F /* CountForMeTests.swift */; };
+		F2F22E5722C3AC4C003DF60F /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AE6FE222A2A1BB00F82B27 /* CalculatorModel.swift */; };
+		F2F22E5822C3AC5E003DF60F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2825D5B229F07BE00BDF7A8 /* ViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F2F22E5222C3AC39003DF60F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F2825D4E229F07BE00BDF7A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F2825D55229F07BE00BDF7A8;
+			remoteInfo = CountForMe;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F2825D56229F07BE00BDF7A8 /* CountForMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountForMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +37,20 @@
 		F2825D63229F07C200BDF7A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2825D65229F07C200BDF7A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2AE6FE222A2A1BB00F82B27 /* CalculatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
+		F2F22E4D22C3AC39003DF60F /* CountForMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountForMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2F22E4F22C3AC39003DF60F /* CountForMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountForMeTests.swift; sourceTree = "<group>"; };
+		F2F22E5122C3AC39003DF60F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F2825D53229F07BE00BDF7A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2F22E4A22C3AC39003DF60F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,6 +67,7 @@
 				F2E83EEF229F20A70078FBBC /* Model */,
 				F2E83EEE229F20720078FBBC /* Controllers */,
 				F2825D58229F07BE00BDF7A8 /* CountForMe */,
+				F2F22E4E22C3AC39003DF60F /* CountForMeTests */,
 				F2825D57229F07BE00BDF7A8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				F2825D56229F07BE00BDF7A8 /* CountForMe.app */,
+				F2F22E4D22C3AC39003DF60F /* CountForMeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +116,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F2F22E4E22C3AC39003DF60F /* CountForMeTests */ = {
+			isa = PBXGroup;
+			children = (
+				F2F22E4F22C3AC39003DF60F /* CountForMeTests.swift */,
+				F2F22E5122C3AC39003DF60F /* Info.plist */,
+			);
+			path = CountForMeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,6 +145,24 @@
 			productReference = F2825D56229F07BE00BDF7A8 /* CountForMe.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F2F22E4C22C3AC39003DF60F /* CountForMeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2F22E5622C3AC39003DF60F /* Build configuration list for PBXNativeTarget "CountForMeTests" */;
+			buildPhases = (
+				F2F22E4922C3AC39003DF60F /* Sources */,
+				F2F22E4A22C3AC39003DF60F /* Frameworks */,
+				F2F22E4B22C3AC39003DF60F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F2F22E5322C3AC39003DF60F /* PBXTargetDependency */,
+			);
+			name = CountForMeTests;
+			productName = CountForMeTests;
+			productReference = F2F22E4D22C3AC39003DF60F /* CountForMeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -123,6 +175,10 @@
 				TargetAttributes = {
 					F2825D55229F07BE00BDF7A8 = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					F2F22E4C22C3AC39003DF60F = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = F2825D55229F07BE00BDF7A8;
 					};
 				};
 			};
@@ -140,6 +196,7 @@
 			projectRoot = "";
 			targets = (
 				F2825D55229F07BE00BDF7A8 /* CountForMe */,
+				F2F22E4C22C3AC39003DF60F /* CountForMeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -152,6 +209,13 @@
 				F2825D64229F07C200BDF7A8 /* LaunchScreen.storyboard in Resources */,
 				F2825D61229F07C200BDF7A8 /* Assets.xcassets in Resources */,
 				F2825D5F229F07BE00BDF7A8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2F22E4B22C3AC39003DF60F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +232,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F2F22E4922C3AC39003DF60F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2F22E5822C3AC5E003DF60F /* ViewController.swift in Sources */,
+				F2F22E5022C3AC39003DF60F /* CountForMeTests.swift in Sources */,
+				F2F22E5722C3AC4C003DF60F /* CalculatorModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F2F22E5322C3AC39003DF60F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F2825D55229F07BE00BDF7A8 /* CountForMe */;
+			targetProxy = F2F22E5222C3AC39003DF60F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F2825D5D229F07BE00BDF7A8 /* Main.storyboard */ = {
@@ -342,6 +424,46 @@
 			};
 			name = Release;
 		};
+		F2F22E5422C3AC39003DF60F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9WU55MK2SW;
+				INFOPLIST_FILE = CountForMeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.my.project.CountForMeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CountForMe.app/CountForMe";
+			};
+			name = Debug;
+		};
+		F2F22E5522C3AC39003DF60F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9WU55MK2SW;
+				INFOPLIST_FILE = CountForMeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.my.project.CountForMeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CountForMe.app/CountForMe";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -359,6 +481,15 @@
 			buildConfigurations = (
 				F2825D69229F07C200BDF7A8 /* Debug */,
 				F2825D6A229F07C200BDF7A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2F22E5622C3AC39003DF60F /* Build configuration list for PBXNativeTarget "CountForMeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2F22E5422C3AC39003DF60F /* Debug */,
+				F2F22E5522C3AC39003DF60F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

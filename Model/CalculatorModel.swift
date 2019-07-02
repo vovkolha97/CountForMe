@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 
 class CalculatorModel {
     
@@ -9,9 +10,22 @@ class CalculatorModel {
     var isDotPressed: Bool = false
     var isNewValue: Bool = true
     
-    
+    func applyAction(action: String) {
+        switch action {
+        case "%":
+            percentBtnPressed(text: action)
+        case ".":
+            dotBtnPressed()
+        case "c":
+            reset()
+        default:
+            print("Unknown operator %s", operat as Any)
+            return
+        }
+    }
+
     func operatorSelected( operat: Character, text: String) {
-        if self.operat != nil {
+        if self.operat != nil {   //there
             argument2 = Double(text)!
             calculate()
         } else {
@@ -21,7 +35,8 @@ class CalculatorModel {
         }
         
     }
-    func calculate() {
+    func calculate() { //there
+        
         switch operat {
         case "+" :
             self.argument1 = argument1 + argument2
@@ -31,8 +46,6 @@ class CalculatorModel {
             self.argument1 = argument1 / argument2
         case "*":
             self.argument1 = argument1 * argument2
-        case "%":
-            print("")
         default:
             print("Unknown operator %s", operat as Any)
             return
@@ -51,7 +64,7 @@ class CalculatorModel {
     }
     
     func plusMinusBtnPressed(text: String)  {
-        if operat == nil {
+        if operat == nil {  //there
             argument1 = Double(text)!
             argument1 = argument1 * -1
         } else {
@@ -61,7 +74,7 @@ class CalculatorModel {
     }
     
     func percentBtnPressed(text: String) {
-        if operat == nil {
+        if operat == nil {  //there
             argument1 = Double(text)!
         } else {
             argument2 = Double(text)!

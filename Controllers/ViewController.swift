@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 
 class ViewController: UIViewController {
     
@@ -6,47 +7,15 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var TextField: UITextField!
     
-    @IBAction func digitBtn(_ sender: UIButton) {
-        addNumber(number: String(sender.tag))
-    }
-    @IBAction func cleanBtn(_ sender: Any) {
-        model.reset()
-        display()
-    }
-    @IBAction func equal(_ sender: Any) {
-        if model.operat == nil {
-            return
+    @IBAction func valueBtn(_ sender: UIButton) {
+        let btnTitle = sender.currentTitle!
+  let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: btnTitle))
+        if isNumber {
+            addNumber(number: btnTitle)
+        } else{
+            model.applyAction(action: btnTitle)
+            display()
         }
-        model.operatorSelected(operat: "=", text: TextField.text!)
-        display()
-    }
-    @IBAction func plus(_ sender: Any) {
-        model.operatorSelected(operat: "+", text: TextField.text!)
-        display()
-    }
-    @IBAction func minus(_ sender: Any) {
-        model.operatorSelected(operat: "-", text: TextField.text!)
-        display()
-    }
-    @IBAction func multiple(_ sender: Any) {
-        model.operatorSelected(operat: "*", text: TextField.text!)
-        display()
-    }
-    @IBAction func divide(_ sender: Any) {
-        model.operatorSelected(operat: "/", text: TextField.text!)
-        display()
-    }
-    @IBAction func plusMinusBtn(_ sender: Any) {
-        model.plusMinusBtnPressed(text: TextField.text!)
-        display()
-    }
-    @IBAction func percentBtn(_ sender: Any) {
-        model.percentBtnPressed(text: TextField.text!)
-        display()
-    }
-    @IBAction func dotBtn(_ sender: Any) {
-        addDot()
-        model.dotBtnPressed()
     }
     
     override func viewDidLoad() {
@@ -65,12 +34,10 @@ class ViewController: UIViewController {
     }
     
     func addDot() {
-        
         if (!model.isDotPressed)  {
             TextField.text?.append(contentsOf: ".")
         }
     }
-    
     
     func display() {
         if model.isNewValue {
@@ -81,7 +48,6 @@ class ViewController: UIViewController {
             TextField.text = formatter(argument: String(model.argument1))
         } else {
             TextField.text = formatter(argument: String(model.argument2))
-            
         }
     }
     
@@ -93,7 +59,6 @@ class ViewController: UIViewController {
                 return tokens.first!
             }
         }
-        
         return argument
     }
 }
