@@ -2,42 +2,83 @@ import UIKit
 import Foundation
 
 class CalculatorModel {
-    
-    let maxValue: Double  = 999999
     var argument1: Double = 0
     var argument2: Double = 0
-    var operat: Character? = nil
+    
+    var operat: String? = nil
+    
     var isDotPressed: Bool = false
     var isNewValue: Bool = true
     
-    func applyAction(action: String) {
+    var input: String = ""
+    var operators: [String] = ["+", "-", "*", "/"]
+    var actions: [String] = ["%", ".", "+/-", "c", "="]
+    
+    func actionHandler(btnTitle: String) {
+        let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: btnTitle))
+        
+        if isNumber {
+            addNumber(number: btnTitle)
+            return
+        }
+        
+        if operators.contains(btnTitle) {
+            calculateArguments()
+            operatorSelected(operat: btnTitle)
+            outputFormatter()
+        } else if actions.contains(btnTitle) {
+            applyAction(action: btnTitle)
+        }
+        
+    }
+    
+    func addNumber (number: String) {
+        if isNewValue {
+            input = number
+        } else {
+            input.append(contentsOf: number)
+        }
+        isNewValue = false
+    }
+    
+    func applyAction (action: String) {
+        
         switch action {
-        case "%":
-            percentBtnPressed(text: action)
         case ".":
-            dotBtnPressed()
+            addDot()
         case "c":
             reset()
+        case "=":
+            calculate()
         default:
             print("Unknown operator %s", operat as Any)
             return
         }
     }
-
-    func operatorSelected( operat: Character, text: String) {
-        if self.operat != nil {   //there
-            argument2 = Double(text)!
+    
+    func calculateArguments() {
+        if self.operat != nil {
+            argument2 = Double(input)!
+        } else {
+            argument1 = Double(input)!
+        }
+    }
+    
+    func operatorSelected( operat: String) {
+        if self.operat != nil {
             calculate()
         } else {
-            argument1 = Double(text)!
             self.operat = operat
             isNewValue = true
         }
-        
     }
-    func calculate() { //there
-        
+    
+    func calculate() {
         switch operat {
+        case "%":
+            percentBtnPressed()
+        case "+/-":
+            plusMinusBtnPressed()
         case "+" :
             self.argument1 = argument1 + argument2
         case "-":
@@ -52,7 +93,6 @@ class CalculatorModel {
         }
         argument2 = 0
         operat = nil
-        
     }
     
     func reset() {
@@ -63,22 +103,15 @@ class CalculatorModel {
         isNewValue = true
     }
     
-    func plusMinusBtnPressed(text: String)  {
-        if operat == nil {  //there
-            argument1 = Double(text)!
+    func plusMinusBtnPressed()  {
+        if operat == nil {
             argument1 = argument1 * -1
         } else {
-            argument2 = Double(text)!
             argument2 = argument2 * -1
         }
     }
     
-    func percentBtnPressed(text: String) {
-        if operat == nil {  //there
-            argument1 = Double(text)!
-        } else {
-            argument2 = Double(text)!
-        }
+    func percentBtnPressed() {
         if argument2 != 0{
             let percentValue = argument2 / 100
             let percentDisplayed = percentValue * argument1
@@ -103,8 +136,35 @@ class CalculatorModel {
         operat = "%"
     }
     
-    func dotBtnPressed() {
-        isDotPressed = true
+    func addDot() {
+        if (isDotPressed)  {
+            input.append(contentsOf: ".")
+        }
         
+        isDotPressed = true
     }
+    
+    func outputFormatter() {
+        if isNewValue {
+            input = "0"
+            return
+        }
+        if operat == nil {
+            input = formatter(argument: String(argument1))
+        } else {
+            input = formatter(argument: String(argument2))
+        }
+    }
+    
+    func formatter(argument: String) -> String{
+        let delimiter = "."
+        if argument.contains(delimiter) {
+            let tokens = argument.components(separatedBy: delimiter)
+            if tokens.last == "0" {
+                return tokens.first!
+            }
+        }
+        return argument
+    }
+    
 }
