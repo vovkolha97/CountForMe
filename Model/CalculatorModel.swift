@@ -12,7 +12,7 @@ class CalculatorModel {
     
     var input: String = ""
     var operators: [String] = ["+", "-", "*", "/"]
-    var actions: [String] = ["%", ".", "+/-", "c", "="]
+    var actions: [String] = ["%", ".", "+/-", "C", "="]
     
     func actionHandler(btnTitle: String) {
         let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: btnTitle))
@@ -21,41 +21,16 @@ class CalculatorModel {
             addNumber(number: btnTitle)
             return
         }
+        calculateArguments()
         
         if operators.contains(btnTitle) {
-            calculateArguments()
             operatorSelected(operat: btnTitle)
-            outputFormatter()
+            
         } else if actions.contains(btnTitle) {
             applyAction(action: btnTitle)
         }
-        
+        outputFormatter()
     }
-    
-    func addNumber (number: String) {
-        if isNewValue {
-            input = number
-        } else {
-            input.append(contentsOf: number)
-        }
-        isNewValue = false
-    }
-    
-    func applyAction (action: String) {
-        
-        switch action {
-        case ".":
-            addDot()
-        case "c":
-            reset()
-        case "=":
-            calculate()
-        default:
-            print("Unknown operator %s", operat as Any)
-            return
-        }
-    }
-    
     func calculateArguments() {
         if self.operat != nil {
             argument2 = Double(input)!
@@ -64,7 +39,35 @@ class CalculatorModel {
         }
     }
     
-    func operatorSelected( operat: String) {
+    func addNumber(number: String) {
+        if isNewValue {
+            input = number
+        } else {
+            input.append(contentsOf: number)
+        }
+        isNewValue = false
+    }
+    
+    func applyAction(action: String) {
+        
+        switch action {
+        case "%":
+            percentBtnPressed()
+        case ".":
+            addDot()
+        case "C":
+            reset()
+        case "=":
+            operatorSelected(operat: operat)
+        case "+/-":
+            plusMinusBtnPressed()
+        default:
+            print("Unknown action %s", operat as Any)
+            return
+        }
+    }
+    
+    func operatorSelected( operat: String?) {
         if self.operat != nil {
             calculate()
         } else {
@@ -75,10 +78,6 @@ class CalculatorModel {
     
     func calculate() {
         switch operat {
-        case "%":
-            percentBtnPressed()
-        case "+/-":
-            plusMinusBtnPressed()
         case "+" :
             self.argument1 = argument1 + argument2
         case "-":
@@ -93,9 +92,11 @@ class CalculatorModel {
         }
         argument2 = 0
         operat = nil
+        outputFormatter()
     }
     
     func reset() {
+        input = ""
         argument1 = 0
         argument2 = 0
         operat = nil
@@ -133,11 +134,10 @@ class CalculatorModel {
         } else if argument1 != 0 {
             argument1 /= 100
         }
-        operat = "%"
     }
     
     func addDot() {
-        if (isDotPressed)  {
+        if (!isDotPressed)  {
             input.append(contentsOf: ".")
         }
         
@@ -166,5 +166,4 @@ class CalculatorModel {
         }
         return argument
     }
-    
 }
