@@ -11,8 +11,8 @@ class CalculatorModel {
     var isNewValue: Bool = true
     
     var input: String = ""
-    var operators: [String] = ["+", "-", "*", "/"]
-    var actions: [String] = ["%", ".", "+/-", "C", "="]
+    let operators: [String] = ["+", "-", "*", "/"]
+    let actions: [String] = ["%", ".", "+/-", "C", "="]
     
     func actionHandler(btnTitle: String) {
         let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: btnTitle))
@@ -116,19 +116,6 @@ class CalculatorModel {
         if argument2 != 0{
             let percentValue = argument2 / 100
             let percentDisplayed = percentValue * argument1
-            switch operat {
-            case "*" :
-                self.argument1 = argument1 * percentValue
-            case "-":
-                self.argument1 = argument1 - percentDisplayed
-            case "/":
-                self.argument1 = argument1 / percentValue
-            case "+":
-                self.argument1 = argument1 + percentDisplayed
-            default:
-                print("Unknown operator %s", operat as Any)
-                return
-            }
             self.argument2 = percentDisplayed
             
         } else if argument1 != 0 {
